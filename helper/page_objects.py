@@ -28,27 +28,28 @@ class AddProdcutToCart(CommonAction):
         self.site.launch_site()
 
     def clear_popup(self, cookie):
-        """This is to clear cookies"""
+        """
+        This is to clear cookies
+        """
         WebDriverWait(self.site.driver, 20) \
             .until(ec.visibility_of_element_located((By.CSS_SELECTOR, cookie)))
         self.site.driver.find_element_by_css_selector(cookie).click()
 
-    def choose_product_category(self, outdoor):
+    def choose_product_category(self, category):
         """
-        This method is to help select any product
+        This method is to help select any product category
         on the westwing site
-        :param product:
+        :param category:
         :return:
         """
         WebDriverWait(self.site.driver, 20) \
-            .until(ec.visibility_of_element_located((By.CSS_SELECTOR, outdoor)))
-        self.site.driver.find_element_by_css_selector(outdoor).click()
+            .until(ec.visibility_of_element_located((By.CSS_SELECTOR, category)))
+        self.site.driver.find_element_by_css_selector(category).click()
 
     def remove_notice(self, body):
         """
-        This method is to help select any product
-        on the westwing site
-        :param product:
+        This method is to help to remove the login popup
+        :param body:
         :return:
         """
         WebDriverWait(self.site.driver, 10) \
@@ -60,6 +61,12 @@ class AddProdcutToCart(CommonAction):
         self.site.driver.execute_script("arguments[0].click();", outside)
 
     def select_product(self, item):
+        """
+        This method is to help select any product
+        on the westwing site
+        :param
+        :return:
+        """
         WebDriverWait(self.site.driver, 10) \
             .until(ec.presence_of_element_located((By.CSS_SELECTOR, item)))
         locate = self.site.driver.find_element_by_css_selector(item)
@@ -67,17 +74,22 @@ class AddProdcutToCart(CommonAction):
         action.move_to_element(locate).perform()
         self.click_an_element(item)
 
-    def home(self):
-        WebDriverWait(self.site.driver, 10) \
-            .until(ec.presence_of_element_located((By.CSS_SELECTOR, labels.body)))
-        self.site.driver.find_element_by_css_selector(labels.home).click()
-
     def add_to_cart(self, add_btn):
+        """
+        The step that adds the product to cart
+        :param add_btn:
+        :return:
+        """
         WebDriverWait(self.site.driver, 20) \
             .until(ec.visibility_of_element_located((By.CSS_SELECTOR, add_btn)))
         self.site.driver.find_element_by_css_selector(add_btn).click()
 
     def display_cart(self, show_cart):
+        """
+        This clicks the cart
+        :param show_cart:
+        :return:
+        """
         WebDriverWait(self.site.driver, 20) \
             .until(ec.visibility_of_element_located((By.CSS_SELECTOR, show_cart)))
         self.site.driver.find_element_by_css_selector(show_cart).click()
