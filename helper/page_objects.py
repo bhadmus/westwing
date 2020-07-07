@@ -91,9 +91,9 @@ class AddProdcutToCart(CommonAction):
         cart = self.site.driver.find_element_by_css_selector(labels.cart_icon)
         try:
             assert count in cart.text
-            print(f'{count} is present') # CHANGE THIS TO LOGGING STYLE
-        except:
-            raise AssertionError("Number not Present")
+            print(f'{count} is present')
+        except AssertionError:
+            f"{count} not present"
 
     def verify_cart_content(self, content):
         WebDriverWait(self.site.driver, 10) \
@@ -102,6 +102,6 @@ class AddProdcutToCart(CommonAction):
 
         try:
             assert content in item.text
-            print(f'{content} is present in the cart')  # CHANGE THIS TO LOGGING STYLE
-        except:
-            raise AssertionError("Item not Found")
+            print(f'{content} is present in the cart')
+        except AssertionError:
+            "Item not Found"
