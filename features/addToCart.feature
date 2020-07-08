@@ -24,7 +24,7 @@ Feature: Add Product to Cart
 
       And I should see the product from "Outdoor"
 
-    Then I close the page
+
 
 
    Scenario: Add a product from Decoration
@@ -41,7 +41,7 @@ Feature: Add Product to Cart
 
       And I should see the product from "Decor"
 
-    Then  I close the page
+
 
 
    Scenario: Add a product from Nursery
