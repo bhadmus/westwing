@@ -8,8 +8,6 @@ from webdriver_config import Driver
 from values import labels
 
 
-
-
 class AddProdcutToCart(CommonAction):
     """This creates the class file to describe the journey of adding to Cart"""
 
